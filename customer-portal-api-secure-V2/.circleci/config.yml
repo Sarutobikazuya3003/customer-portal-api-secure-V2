@@ -1,0 +1,34 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Install Backend Dependencies
+          command: |
+            cd customer-portal-api-secure-V2/backend
+            npm install
+      - run:
+          name: Install Frontend Dependencies
+          command: |
+            cd customer-portal-api-secure-V2/frontend
+            npm install
+      - run:
+          name: Run Backend Tests
+          command: |
+            cd customer-portal-api-secure-V2/backend
+            npm test
+      - run:
+          name: Run Frontend Tests
+          command: |
+            cd customer-portal-api-secure-V2/frontend
+            npm test
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build
