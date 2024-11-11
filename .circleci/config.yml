@@ -9,22 +9,22 @@ jobs:
       - run:
           name: Install Backend Dependencies
           command: |
-            cd backend
+            cd customer-portal-api-secure-V2/backend
             npm install
       - run:
           name: Install Frontend Dependencies
           command: |
-            cd ../frontend
+            cd customer-portal-api-secure-V2/frontend
             npm install
       - run:
           name: Run Backend Tests
           command: |
-            cd ../backend
+            cd customer-portal-api-secure-V2/backend
             npm test
       - run:
           name: Run Frontend Tests
           command: |
-            cd ../frontend
+            cd customer-portal-api-secure-V2/frontend
             npm test
 
 workflows:
